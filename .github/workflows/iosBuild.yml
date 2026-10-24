@@ -14,26 +14,23 @@ jobs:
   build-and-test:
     name: Build and Test iOS App
     runs-on: xcode-27
-    defaults:
-      run:
-        working-directory: GitHub_Action_IOSDemo
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Select Xcode
+      - name: Check Xcode version
         run: |
-          xcode-select -p
           xcodebuild -version
 
       - name: Show Xcode project and schemes
+        working-directory: GitHub_Action_IOSDemo
         run: |
           ls -la
-          xcodebuild -list \
-            -project GitHub_Action_IOSDemo.xcodeproj
+          xcodebuild -list -project GitHub_Action_IOSDemo.xcodeproj
 
       - name: Build iOS app
+        working-directory: GitHub_Action_IOSDemo
         run: |
           xcodebuild \
             -project GitHub_Action_IOSDemo.xcodeproj \
@@ -42,7 +39,7 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
 
-     - name: Test iOS app
+      - name: Test iOS app
         working-directory: GitHub_Action_IOSDemo
         run: |
           xcodebuild \
@@ -51,6 +48,4 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=27.0' \
             CODE_SIGNING_ALLOWED=NO \
             test
-
-
 
