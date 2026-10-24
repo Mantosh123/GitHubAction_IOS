@@ -13,8 +13,7 @@ on:
 jobs:
   build-and-test:
     name: Build and Test iOS App
-    runs-on: macos-latest
-
+    runs-on: xcode-27
     defaults:
       run:
         working-directory: GitHub_Action_IOSDemo
@@ -51,4 +50,6 @@ jobs:
             -destination 'platform=iOS Simulator,name=iPhone 16' \
             CODE_SIGNING_ALLOWED=NO \
             test
+
+
 
