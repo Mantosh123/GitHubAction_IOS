@@ -12,7 +12,7 @@ on:
 
 jobs:
   build-and-test:
-    name: Build and Test iOS App
+    name: Build and Test Manto iOS App
     runs-on: xcode-27
 
     steps:
@@ -46,6 +46,7 @@ jobs:
             -project GitHub_Action_IOSDemo.xcodeproj \
             -scheme GitHub_Action_IOSDemo \
             -destination 'platform=iOS Simulator,name=iPhone 17,OS=27.0' \
+            -only-testing:GitHub_Action_IOSDemoTests \
             CODE_SIGNING_ALLOWED=NO \
             test
 
