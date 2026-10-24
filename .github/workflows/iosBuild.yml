@@ -43,11 +43,12 @@ jobs:
             build
 
       - name: Test iOS app
+              working-directory: GitHub_Action_IOSDemo
         run: |
           xcodebuild \
             -project GitHub_Action_IOSDemo.xcodeproj \
             -scheme GitHub_Action_IOSDemo \
-            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            -destination 'platform=iOS Simulator,name=iPhone 17,OS=27.0' \
             CODE_SIGNING_ALLOWED=NO \
             test
 
