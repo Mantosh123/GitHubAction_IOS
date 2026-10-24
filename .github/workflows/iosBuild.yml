@@ -42,8 +42,8 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             build
 
-      - name: Test iOS app
-              working-directory: GitHub_Action_IOSDemo
+     - name: Test iOS app
+        working-directory: GitHub_Action_IOSDemo
         run: |
           xcodebuild \
             -project GitHub_Action_IOSDemo.xcodeproj \
